@@ -1,62 +1,57 @@
 import 'package:flutter/material.dart';
-import './app_screens/home.dart';
 
 void main() {
-  runApp(MaterialApp(
 
-	  title: "Exploring UI widgets",
-
-	  home: Scaffold(
-      appBar: AppBar(title: Text("Long List"),),
-      body: getListView(),
-      floatingActionButton: FloatingActionButton(
-	      onPressed: () {
-	      	debugPrint("FAB clicked");
-	      },
-	      child: Icon(Icons.add),
-	      tooltip: 'Add One More Item',
-      ),
-    ),
-
-  ));
-}
-
-void showSnackBar(BuildContext context, String item) {
-	var snackBar = SnackBar(
-		content: Text("You just tapped $item"),
-		action: SnackBarAction(
-				label: "UNDO",
-				onPressed: () {
-					debugPrint('Performing dummy UNDO operation');
-				}
-		),
+	runApp(
+		MaterialApp(
+			title: "Sateful App Example",
+			home: FavoriteCity(),
+		)
 	);
-
-	Scaffold.of(context).showSnackBar(snackBar);
 }
 
-List<String> getListElements() {
+class FavoriteCity extends StatefulWidget {
 
-	var items = List<String>.generate(1000, (counter) => "Item $counter");
-	return items;
+	@override
+  State<StatefulWidget> createState() {
+    return _FavoriteCityState();
+  }
 }
 
-Widget getListView() {
+class _FavoriteCityState extends State<FavoriteCity> {
 
-	var listItems = getListElements();
+	String nameCity = "";
 
-	var listView = ListView.builder(
-			itemBuilder: (context, index) {
+	@override
+  Widget build(BuildContext context) {
 
-				return ListTile(
-					leading: Icon(Icons.arrow_right),
-					title: Text(listItems[index]),
-					onTap: () {
-						showSnackBar(context, listItems[index]);
-					},
-				);
-			}
-	);
+		debugPrint("Favorite City widget is created");
 
-	return listView;
+    return Scaffold(
+	    appBar: AppBar(
+		    title: Text("Stateful App Example"),
+	    ),
+	    body: Container(
+		    margin: EdgeInsets.all(20.0),
+		    child: Column(
+			    children: <Widget>[
+			    	TextField(
+					    onSubmitted: (String userInput) {
+					    	setState(() {
+					    		debugPrint("set State is called, this tells framwork to redraw the FavCity widget");
+							    nameCity = userInput;
+					    	});
+					    },
+				    ),
+				    Padding(
+						    padding: EdgeInsets.all(30.0),
+						    child: Text(
+					        "Your bext city is $nameCity",
+					        style: TextStyle(fontSize: 20.0),
+				    ))
+			    ],
+		    ),
+	    ),
+    );
+  }
 }

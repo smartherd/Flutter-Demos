@@ -26,8 +26,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - images/flight.png
+#  assets:
+#    - images/flight.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -41,18 +41,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Raleway
-      fonts:
-        - asset: fonts/Raleway-Regular.ttf
-        - asset: fonts/Raleway-Bold.ttf
-          weight: 700
-        - asset: fonts/Raleway-LightItalic.ttf
-          weight: 300
-          style: italic
-    - family: Roboto
-      fonts:
-        - asset: fonts/Roboto-Regular.ttf
+#  fonts:
+#    - family: Raleway
+#      fonts:
+#        - asset: fonts/Raleway-Regular.ttf
+#        - asset: fonts/Raleway-Bold.ttf
+#          weight: 700
+#        - asset: fonts/Raleway-LightItalic.ttf
+#          weight: 300
+#          style: italic
+#    - family: Roboto
+#      fonts:
+#        - asset: fonts/Roboto-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
