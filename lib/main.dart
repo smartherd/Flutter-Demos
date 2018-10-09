@@ -28,14 +28,14 @@ class _SIFormState extends State<SIForm> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-
+//			resizeToAvoidBottomPadding: false,
 	    appBar: AppBar(
 		    title: Text('Simple Interest Calculator'),
 	    ),
 
 	    body: Container(
 		    margin: EdgeInsets.all(_minimumPadding * 2),
-		    child: Column(
+		    child: ListView(
 			    children: <Widget>[
 
 				    getImageAsset(),
@@ -145,5 +145,4 @@ class _SIFormState extends State<SIForm> {
 
 		return Container(child: image, margin: EdgeInsets.all(_minimumPadding * 10),);
   }
-
 }
