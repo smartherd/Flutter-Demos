@@ -33,6 +33,8 @@ class NoteListState extends State<NoteList> {
 
 	    appBar: AppBar(
 		    title: Text('Notes'),
+		  centerTitle: false,
+          	  titleSpacing: 0.0,
 	    ),
 
 	    body: getNoteListView(),
@@ -82,7 +84,7 @@ class NoteListState extends State<NoteList> {
 
 						onTap: () {
 							debugPrint("ListTile Tapped");
-							navigateToDetail(this.noteList[position],'Edit Note');
+							navigateToDetail(this.noteList[position],'Edit');
 						},
 
 					),
@@ -125,7 +127,7 @@ class NoteListState extends State<NoteList> {
 
 		int result = await databaseHelper.deleteNote(note.id);
 		if (result != 0) {
-			_showSnackBar(context, 'Note Deleted Successfully');
+			_showSnackBar(context, '1 Note Deleted Successfully');
 			updateListView();
 		}
 	}
